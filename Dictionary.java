@@ -26,7 +26,7 @@ class Dictionary {
                 for(int j = i;j < length -1;j++){
                     Records[i] = Records[i+1];
                 }
-                return temp;
+                return  temp;
             }
         }
         return null;
