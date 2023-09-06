@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 class MyDictionary {
   // Main Driver Method (optional in our modular design)
   public static void main(String args[]) {
@@ -24,19 +22,17 @@ class MyDictionary {
     count = 0;
   }
 
-  public void Insert(int key, double value) {
+  public void Insert(double value) {
     if (size > count) {
-      Records[count].key = key;
-      Records[count].value = value;
-      count++;
+      Records[count++] = new Record(value);
     } else
-      System.out.println("Size" + size + " not enough for holding an extra element after " + count + " count");
+      System.out.println("Size" + size + " not enough for holding an extra element after Length: " + count);
   }
 
   public void Show() {
-    System.out.print("Printing Record of " + size + " Size and Length " + count);
+    System.out.println("Printing Record of Size: " + size + " and Length: " + count);
     for (int i = 0; i < count; i++) {
-      System.out.println("Key: " + Records[i].key + " Value: " + Records[i].value);
+      System.out.println("Key: " + Records[i].key + ", Value: " + Records[i].value);
     }
   }
 
@@ -84,6 +80,7 @@ class MyDictionary {
   }
 
   public Record remove(int k) {
+    if(count > 0)
     for (int i = 0; i < count; i++) {
       if (Records[i].key == k) {
         Record temp = Records[i];
